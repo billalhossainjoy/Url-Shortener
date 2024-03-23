@@ -1,6 +1,11 @@
+import dotenv from 'dotenv'
 import express, { Express } from "express";
+import connectMongo from "./config/db";
 
 const app: Express = express();
+
+dotenv.config();
+connectMongo(String(process.env.mongoLink));
 
 interface configarations {
   port: number;
